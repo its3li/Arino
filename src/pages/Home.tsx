@@ -39,26 +39,29 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden">
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-[center_88%] md:object-[center_84%]"
         autoPlay
         muted
         loop
         playsInline
       />
 
+
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="text-center animate-fade-in">
-          <div className="mb-8">
-            <h1 className="text-6xl sm:text-8xl font-bold text-[#f5f1e8] mb-4">
-              Arino
-            </h1>
-            <p className="text-xl sm:text-2xl text-[#d4a574] font-light" dir="rtl">
+        <div className="text-center animate-fade-in flex flex-col items-center">
+          <div className="mb-0 flex w-full flex-col items-center justify-center">
+            <img
+              src="https://i.ibb.co/zhxmRXMd/upscalemedia-transformed-1.png"
+              alt="Arino"
+              className="w-80 sm:w-[26rem] md:w-[32rem] lg:w-[38rem] xl:w-[42rem] h-auto mx-auto mb-0 drop-shadow-2xl"
+            />
+            <p className="text-xl sm:text-2xl text-[#d4a574] font-light text-center -mt-8 sm:-mt-10 md:-mt-12 w-full" dir="rtl">
               علمٌ يُستفاد، ونورٌ يُستزاد
             </p>
           </div>
 
-          <p className="text-lg sm:text-xl text-[#f5f1e8]/90 max-w-2xl mx-auto mb-12 leading-relaxed">
-            <span className="block mb-2">Illuminating Excellence Through Creative Innovation</span>
+          <p className="text-lg sm:text-xl text-[#f5f1e8]/90 max-w-2xl mx-auto mb-12 text-center leading-[1.65]">
+            <span className="block mb-3">Illuminating Excellence Through Creative Innovation</span>
             <span className="block text-base" dir="rtl">نحول أفكارك إلى واقع رقمي مبتكر</span>
           </p>
 

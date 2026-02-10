@@ -56,7 +56,11 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="Arino" className="h-12" />
+              <img
+                src="https://i.ibb.co/sdxz1mCC/Invert-the-two-2k-202602110037.png"
+                alt="Arino"
+                className="h-20 sm:h-24 md:h-28 w-auto"
+              />
             </Link>
 
             <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
@@ -120,7 +124,11 @@ export default function Navigation() {
           }`}
       >
         <div className="flex items-center justify-between p-6 border-b border-[#d4a574]/20">
-          <img src="/logo.png" alt="Arino" className="h-10" />
+          <img
+            src="https://i.ibb.co/sdxz1mCC/Invert-the-two-2k-202602110037.png"
+            alt="Arino"
+            className="h-16 w-auto"
+          />
           <button
             onClick={() => setIsOpen(false)}
             className="text-[#f5f1e8] hover:text-[#d4a574] transition-colors"
