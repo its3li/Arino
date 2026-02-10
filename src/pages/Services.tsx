@@ -1,7 +1,10 @@
-import { Code, Palette, Megaphone, LineChart, Smartphone, Globe } from 'lucide-react';
+import { Code, Palette, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Services() {
+  const { isArabic } = useLanguage();
+
   const services = [
     {
       icon: Code,
@@ -38,42 +41,6 @@ export default function Services() {
         { en: 'Wireframing', ar: 'النماذج الأولية' },
         { en: 'Prototyping', ar: 'النماذج التجريبية' }
       ]
-    },
-    {
-      icon: Megaphone,
-      title: 'Digital Marketing',
-      titleAr: 'التسويق الرقمي',
-      description: 'Strategic marketing campaigns that increase visibility and drive meaningful engagement.',
-      descriptionAr: 'حملات تسويقية استراتيجية تزيد من الوضوح وتدفع التفاعل الهادف.',
-      features: [
-        { en: 'Social Media', ar: 'وسائل التواصل' },
-        { en: 'Content Strategy', ar: 'استراتيجية المحتوى' },
-        { en: 'Analytics', ar: 'التحليلات' }
-      ]
-    },
-    {
-      icon: LineChart,
-      title: 'Brand Strategy',
-      titleAr: 'استراتيجية العلامة',
-      description: 'Comprehensive brand development that establishes your unique identity in the market.',
-      descriptionAr: 'تطوير شامل للعلامة التجارية يثبت هويتك الفريدة في السوق.',
-      features: [
-        { en: 'Brand Identity', ar: 'هوية العلامة' },
-        { en: 'Visual Guidelines', ar: 'إرشادات بصرية' },
-        { en: 'Market Positioning', ar: 'تموضع السوق' }
-      ]
-    },
-    {
-      icon: Globe,
-      title: 'E-Commerce',
-      titleAr: 'التجارة الإلكترونية',
-      description: 'Full-featured online stores that provide seamless shopping experiences and maximize conversions.',
-      descriptionAr: 'متاجر إلكترونية متكاملة توفر تجارب تسوق سلسة وتزيد من التحويلات.',
-      features: [
-        { en: 'Payment Integration', ar: 'تكامل الدفع' },
-        { en: 'Inventory Management', ar: 'إدارة المخزون' },
-        { en: 'Secure Checkout', ar: 'دفع آمن' }
-      ]
     }
   ];
 
@@ -82,12 +49,12 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#1a3a52] mb-4">
-            <span className="rtl:hidden">What We Do</span>
-            <span className="ltr:hidden">بنعمل ايه</span>
+            {isArabic ? 'بنعمل ايه' : 'What We Do'}
           </h1>
-          <p className="text-lg text-[#1a3a52]/70 max-w-2xl mx-auto">
-            <span className="rtl:hidden">Comprehensive digital solutions tailored to your business needs</span>
-            <span className="ltr:hidden" dir="rtl">حلول رقمية شاملة مصممة خصيصًا لاحتياجات عملك</span>
+          <p className="text-lg text-[#1a3a52]/70 max-w-2xl mx-auto" dir={isArabic ? 'rtl' : 'ltr'}>
+            {isArabic
+              ? 'حلول رقمية شاملة مصممة خصيصًا لاحتياجات عملك'
+              : 'Comprehensive digital solutions tailored to your business needs'}
           </p>
         </div>
 
@@ -102,13 +69,11 @@ export default function Services() {
               </div>
 
               <h3 className="text-2xl font-bold text-[#1a3a52] mb-3">
-                <span className="rtl:hidden">{service.title}</span>
-                <span className="ltr:hidden">{service.titleAr}</span>
+                {isArabic ? service.titleAr : service.title}
               </h3>
 
-              <p className="text-[#1a3a52]/70 leading-relaxed mb-6">
-                <span className="rtl:hidden">{service.description}</span>
-                <span className="ltr:hidden" dir="rtl">{service.descriptionAr}</span>
+              <p className="text-[#1a3a52]/70 leading-relaxed mb-6" dir={isArabic ? 'rtl' : 'ltr'}>
+                {isArabic ? service.descriptionAr : service.description}
               </p>
 
               <div className="space-y-2 mb-6">
@@ -116,16 +81,14 @@ export default function Services() {
                   <div key={idx} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#d4a574] rounded-full" />
                     <span className="text-sm text-[#1a3a52]/80">
-                      <span className="rtl:hidden">{feature.en}</span>
-                      <span className="ltr:hidden">{feature.ar}</span>
+                      {isArabic ? feature.ar : feature.en}
                     </span>
                   </div>
                 ))}
               </div>
 
               <button className="w-full py-3 bg-[#1a3a52] text-[#f5f1e8] rounded-lg font-medium hover:bg-[#d4a574] hover:text-[#1a3a52] transition-colors duration-300">
-                <span className="rtl:hidden">Learn More</span>
-                <span className="ltr:hidden">اعرف المزيد</span>
+                {isArabic ? 'اعرف المزيد' : 'Learn More'}
               </button>
             </div>
           ))}
@@ -133,23 +96,18 @@ export default function Services() {
 
         <div className="bg-gradient-to-r from-[#1a3a52] to-[#1a3a52]/90 rounded-3xl p-12 text-center shadow-2xl">
           <h2 className="text-3xl font-bold text-[#f5f1e8] mb-4">
-            <span className="rtl:hidden">Ready to Start Your Project?</span>
-            <span className="ltr:hidden">جاهز لبدء مشروعك؟</span>
+            {isArabic ? 'جاهز لبدء مشروعك؟' : 'Ready to Start Your Project?'}
           </h2>
-          <p className="text-[#f5f1e8]/80 text-lg mb-8 max-w-2xl mx-auto">
-            <span className="rtl:hidden">
-              Let's discuss how we can help bring your vision to life with our expert services
-            </span>
-            <span className="ltr:hidden" dir="rtl">
-              دعنا نناقش كيف يمكننا المساعدة في تحقيق رؤيتك من خلال خدماتنا المتخصصة
-            </span>
+          <p className="text-[#f5f1e8]/80 text-lg mb-8 max-w-2xl mx-auto" dir={isArabic ? 'rtl' : 'ltr'}>
+            {isArabic
+              ? 'دعنا نناقش كيف يمكننا المساعدة في تحقيق رؤيتك من خلال خدماتنا المتخصصة'
+              : "Let's discuss how we can help bring your vision to life with our expert services"}
           </p>
           <Link
             to="/contact"
             className="inline-block px-8 py-4 bg-[#d4a574] text-[#1a3a52] rounded-lg font-semibold hover:bg-[#f5f1e8] transition-all transform hover:scale-105 shadow-xl"
           >
-            <span className="rtl:hidden">Get In Touch</span>
-            <span className="ltr:hidden">تواصل معنا</span>
+            {isArabic ? 'تواصل معنا' : 'Get In Touch'}
           </Link>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Hls from 'hls.js';
-import { ArrowDown } from 'lucide-react';
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -47,8 +46,6 @@ export default function Home() {
         playsInline
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a3a52]/80 via-[#1a3a52]/60 to-[#1a3a52]/80" />
-
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center animate-fade-in">
           <div className="mb-8">
@@ -81,10 +78,6 @@ export default function Home() {
               <span className="ltr:hidden">تواصل معنا</span>
             </Link>
           </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowDown className="text-[#f5f1e8]/60" size={32} />
         </div>
       </div>
     </div>

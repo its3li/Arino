@@ -1,6 +1,9 @@
 import { Users, Target, Award, TrendingUp } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function About() {
+  const { isArabic } = useLanguage();
+
   const milestones = [
     {
       year: '2018',
@@ -58,32 +61,18 @@ export default function About() {
 
   const team = [
     {
-      name: 'Ahmed Hassan',
-      nameAr: 'أحمد حسن',
-      role: 'Founder & CEO',
-      roleAr: 'المؤسس والرئيس التنفيذي',
+      name: 'Ali Mahmoud',
+      nameAr: 'علي محمود',
+      role: 'Co-Founder',
+      roleAr: 'شريك مؤسس',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
     },
     {
-      name: 'Sara Mohammed',
-      nameAr: 'سارة محمد',
-      role: 'Creative Director',
-      roleAr: 'المديرة الإبداعية',
-      image: 'https://images.pexels.com/photos/3756681/pexels-photo-3756681.jpeg'
-    },
-    {
-      name: 'Omar Ali',
-      nameAr: 'عمر علي',
-      role: 'Tech Lead',
-      roleAr: 'قائد التقنية',
+      name: 'Youssef Amr',
+      nameAr: 'يوسف عمرو',
+      role: 'Co-Founder',
+      roleAr: 'شريك مؤسس',
       image: 'https://images.pexels.com/photos/4307869/pexels-photo-4307869.jpeg'
-    },
-    {
-      name: 'Layla Mansour',
-      nameAr: 'ليلى منصور',
-      role: 'Marketing Director',
-      roleAr: 'مديرة التسويق',
-      image: 'https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg'
     }
   ];
 
@@ -92,11 +81,10 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#1a3a52] mb-4">
-            <span className="rtl:hidden">About Us</span>
-            <span className="ltr:hidden">من نحن</span>
+            {isArabic ? 'من نحن' : 'About Us'}
           </h1>
-          <p className="text-xl text-[#1a3a52]/70 max-w-3xl mx-auto leading-relaxed" dir="rtl">
-            علمٌ يُستفاد، ونورٌ يُستزاد
+          <p className="text-xl text-[#1a3a52]/70 max-w-3xl mx-auto leading-relaxed" dir={isArabic ? 'rtl' : 'ltr'}>
+            {isArabic ? 'علمٌ يُستفاد، ونورٌ يُستزاد' : 'Knowledge to be gained, and light to be increased'}
           </p>
         </div>
 
@@ -105,26 +93,27 @@ export default function About() {
             <div className="flex items-center gap-4 mb-6">
               <Users className="text-[#d4a574]" size={40} />
               <h2 className="text-3xl font-bold text-[#1a3a52]">
-                <span className="rtl:hidden">Our Story</span>
-                <span className="ltr:hidden">قصتنا</span>
+                {isArabic ? 'قصتنا' : 'Our Story'}
               </h2>
             </div>
             <div className="prose prose-lg max-w-none">
               <p className="text-[#1a3a52]/80 leading-relaxed mb-4">
-                <span className="rtl:hidden">
-                  At Arino, we believe in the power of knowledge and continuous growth. Our journey began with a simple yet powerful vision: to illuminate the path to digital excellence for businesses of all sizes. We combine cutting-edge technology with creative thinking to deliver solutions that not only meet but exceed expectations.
-                </span>
-                <span className="ltr:hidden" dir="rtl">
-                  في أرينو، نؤمن بقوة المعرفة والنمو المستمر. بدأت رحلتنا برؤية بسيطة لكن قوية: إنارة الطريق نحو التميز الرقمي للشركات بجميع أحجامها. نجمع بين التكنولوجيا المتطورة والتفكير الإبداعي لتقديم حلول لا تلبي التوقعات فحسب، بل تتجاوزها.
-                </span>
+                {isArabic ? (
+                  <span dir="rtl">
+                    في أرينو، نؤمن بقوة المعرفة والنمو المستمر. بدأت رحلتنا برؤية بسيطة لكن قوية: إنارة الطريق نحو التميز الرقمي للشركات بجميع أحجامها. نجمع بين التكنولوجيا المتطورة والتفكير الإبداعي لتقديم حلول لا تلبي التوقعات فحسب، بل تتجاوزها.
+                  </span>
+                ) : (
+                  'At Arino, we believe in the power of knowledge and continuous growth. Our journey began with a simple yet powerful vision: to illuminate the path to digital excellence for businesses of all sizes. We combine cutting-edge technology with creative thinking to deliver solutions that not only meet but exceed expectations.'
+                )}
               </p>
               <p className="text-[#1a3a52]/80 leading-relaxed">
-                <span className="rtl:hidden">
-                  Every project we undertake is an opportunity to learn, grow, and add more light to our collective knowledge. We are passionate about what we do, and it shows in the quality of our work and the satisfaction of our clients.
-                </span>
-                <span className="ltr:hidden" dir="rtl">
-                  كل مشروع نقوم به هو فرصة للتعلم والنمو وإضافة المزيد من النور إلى معرفتنا الجماعية. نحن شغوفون بما نفعله، وهذا يظهر في جودة عملنا ورضا عملائنا.
-                </span>
+                {isArabic ? (
+                  <span dir="rtl">
+                    كل مشروع نقوم به هو فرصة للتعلم والنمو وإضافة المزيد من النور إلى معرفتنا الجماعية. نحن شغوفون بما نفعله، وهذا يظهر في جودة عملنا ورضا عملائنا.
+                  </span>
+                ) : (
+                  'Every project we undertake is an opportunity to learn, grow, and add more light to our collective knowledge. We are passionate about what we do, and it shows in the quality of our work and the satisfaction of our clients.'
+                )}
               </p>
             </div>
           </div>
@@ -132,8 +121,7 @@ export default function About() {
 
         <div className="mb-20">
           <h2 className="text-3xl font-bold text-[#1a3a52] text-center mb-12">
-            <span className="rtl:hidden">Our Values</span>
-            <span className="ltr:hidden">قيمنا</span>
+            {isArabic ? 'قيمنا' : 'Our Values'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
@@ -145,12 +133,10 @@ export default function About() {
                   <value.icon className="text-[#1a3a52]" size={32} />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a3a52] mb-3">
-                  <span className="rtl:hidden">{value.title}</span>
-                  <span className="ltr:hidden">{value.titleAr}</span>
+                  {isArabic ? value.titleAr : value.title}
                 </h3>
-                <p className="text-[#1a3a52]/70 leading-relaxed">
-                  <span className="rtl:hidden">{value.description}</span>
-                  <span className="ltr:hidden" dir="rtl">{value.descriptionAr}</span>
+                <p className="text-[#1a3a52]/70 leading-relaxed" dir={isArabic ? 'rtl' : 'ltr'}>
+                  {isArabic ? value.descriptionAr : value.description}
                 </p>
               </div>
             ))}
@@ -159,8 +145,7 @@ export default function About() {
 
         <div className="mb-20">
           <h2 className="text-3xl font-bold text-[#1a3a52] text-center mb-12">
-            <span className="rtl:hidden">Our Journey</span>
-            <span className="ltr:hidden">رحلتنا</span>
+            {isArabic ? 'رحلتنا' : 'Our Journey'}
           </h2>
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#d4a574]/30 hidden md:block" />
@@ -168,9 +153,8 @@ export default function About() {
               {milestones.map((milestone, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col md:flex-row gap-8 items-center ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                  className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    }`}
                 >
                   <div className="flex-1" />
                   <div className="relative z-10 w-20 h-20 bg-[#1a3a52] rounded-full flex items-center justify-center shadow-xl">
@@ -179,12 +163,10 @@ export default function About() {
                   <div className="flex-1">
                     <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                       <h3 className="text-xl font-bold text-[#1a3a52] mb-2">
-                        <span className="rtl:hidden">{milestone.title}</span>
-                        <span className="ltr:hidden">{milestone.titleAr}</span>
+                        {isArabic ? milestone.titleAr : milestone.title}
                       </h3>
-                      <p className="text-[#1a3a52]/70">
-                        <span className="rtl:hidden">{milestone.description}</span>
-                        <span className="ltr:hidden" dir="rtl">{milestone.descriptionAr}</span>
+                      <p className="text-[#1a3a52]/70" dir={isArabic ? 'rtl' : 'ltr'}>
+                        {isArabic ? milestone.descriptionAr : milestone.description}
                       </p>
                     </div>
                   </div>
@@ -196,8 +178,7 @@ export default function About() {
 
         <div>
           <h2 className="text-3xl font-bold text-[#1a3a52] text-center mb-12">
-            <span className="rtl:hidden">Meet Our Team</span>
-            <span className="ltr:hidden">تعرف على فريقنا</span>
+            {isArabic ? 'تعرف على فريقنا' : 'Meet Our Team'}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
@@ -215,12 +196,10 @@ export default function About() {
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-bold text-[#1a3a52] mb-1">
-                    <span className="rtl:hidden">{member.name}</span>
-                    <span className="ltr:hidden">{member.nameAr}</span>
+                    {isArabic ? member.nameAr : member.name}
                   </h3>
                   <p className="text-[#d4a574] font-medium">
-                    <span className="rtl:hidden">{member.role}</span>
-                    <span className="ltr:hidden">{member.roleAr}</span>
+                    {isArabic ? member.roleAr : member.role}
                   </p>
                 </div>
               </div>
