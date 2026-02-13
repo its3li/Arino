@@ -1,7 +1,14 @@
 import React, { useRef, useId, useEffect, CSSProperties } from 'react';
 import { animate, useMotionValue, AnimationPlaybackControls } from 'framer-motion';
 
+interface ResponsiveImage {
+  src: string;
+  alt?: string;
+  srcSet?: string;
+}
+
 interface AnimationConfig {
+  preview?: boolean;
   scale: number;
   speed: number;
 }
@@ -12,6 +19,9 @@ interface NoiseConfig {
 }
 
 interface ShadowOverlayBackgroundProps {
+  type?: 'preset' | 'custom';
+  presetIndex?: number;
+  customImage?: ResponsiveImage;
   sizing?: 'fill' | 'stretch';
   color?: string;
   animation?: AnimationConfig;
@@ -35,45 +45,49 @@ const useInstanceId = (): string => {
 
 export default function ShadowOverlayBackground({
   sizing = 'fill',
-  color = 'rgba(18, 52, 76, 1)',
-  animation = { scale: 60, speed: 40 },
-  noise = { opacity: 0.2, scale: 0.5 },
+  color = 'rgba(128, 128, 128, 1)',
+  animation,
+  noise,
   style,
   className
 }: ShadowOverlayBackgroundProps) {
   const id = useInstanceId();
-  const animationEnabled = animation.scale > 0;
+  const animationEnabled = animation && animation.scale > 0;
   const feColorMatrixRef = useRef<SVGFEColorMatrixElement>(null);
   const hueRotateMotionValue = useMotionValue(180);
   const hueRotateAnimation = useRef<AnimationPlaybackControls | null>(null);
 
-  const displacementScale = mapRange(animation.scale, 1, 100, 20, 100);
-  const animationDuration = mapRange(animation.speed, 1, 100, 1000, 50);
+  const displacementScale = animation ? mapRange(animation.scale, 1, 100, 20, 100) : 0;
+  const animationDuration = animation ? mapRange(animation.speed, 1, 100, 1000, 50) : 1;
 
   useEffect(() => {
-    if (!feColorMatrixRef.current || !animationEnabled) {
-      return;
-    }
-
-    hueRotateAnimation.current?.stop();
-    hueRotateMotionValue.set(0);
-
-    hueRotateAnimation.current = animate(hueRotateMotionValue, 360, {
-      duration: animationDuration / 25,
-      repeat: Infinity,
-      repeatType: 'loop',
-      ease: 'linear',
-      onUpdate: (value: number) => {
-        if (feColorMatrixRef.current) {
-          feColorMatrixRef.current.setAttribute('values', String(value));
-        }
+    if (feColorMatrixRef.current && animationEnabled) {
+      if (hueRotateAnimation.current) {
+        hueRotateAnimation.current.stop();
       }
-    });
+      hueRotateMotionValue.set(0);
+      hueRotateAnimation.current = animate(hueRotateMotionValue, 360, {
+        duration: animationDuration / 25,
+        repeat: Infinity,
+        repeatType: 'loop',
+        repeatDelay: 0,
+        ease: 'linear',
+        delay: 0,
+        onUpdate: (value: number) => {
+          if (feColorMatrixRef.current) {
+            feColorMatrixRef.current.setAttribute('values', String(value));
+          }
+        }
+      });
 
-    return () => {
-      hueRotateAnimation.current?.stop();
-    };
-  }, [animationDuration, animationEnabled, hueRotateMotionValue]);
+      return () => {
+        if (hueRotateAnimation.current) {
+          hueRotateAnimation.current.stop();
+        }
+      };
+    }
+    return undefined;
+  }, [animationEnabled, animationDuration, hueRotateMotionValue]);
 
   return (
     <div
@@ -130,7 +144,7 @@ export default function ShadowOverlayBackground({
         />
       </div>
 
-      {noise.opacity > 0 && (
+      {noise && noise.opacity > 0 && (
         <div
           style={{
             position: 'absolute',
