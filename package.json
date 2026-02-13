@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
+    "framer-motion": "^11.18.2",
     "hls.js": "^1.6.15",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
