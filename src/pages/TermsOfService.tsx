@@ -1,0 +1,34 @@
+import { useLanguage } from '../contexts/LanguageContext';
+
+export default function TermsOfService() {
+  const { isArabic } = useLanguage();
+
+  return (
+    <div className="min-h-screen bg-[#f5f1e8] pt-28 pb-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#1a3a52] mb-6">
+            {isArabic ? 'شروط الاستخدام' : 'Terms of Service'}
+          </h1>
+          <div className="space-y-4 text-[#1a3a52]/80 leading-relaxed" dir={isArabic ? 'rtl' : 'ltr'}>
+            <p>
+              {isArabic
+                ? 'باستخدام هذا الموقع، فإنك توافق على استخدامه بشكل قانوني ومسؤول.'
+                : 'By using this website, you agree to use it lawfully and responsibly.'}
+            </p>
+            <p>
+              {isArabic
+                ? 'المحتوى المعروض هو لأغراض تعريفية وخدمية فقط وقد يتم تحديثه في أي وقت.'
+                : 'The content is provided for informational and service purposes only and may be updated at any time.'}
+            </p>
+            <p>
+              {isArabic
+                ? 'نحن لا نجمع أي بيانات شخصية عبر هذا الموقع.'
+                : 'We do not collect any personal data through this website.'}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
