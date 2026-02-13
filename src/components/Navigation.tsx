@@ -36,7 +36,7 @@ export default function Navigation() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative flex items-center gap-2 rounded-xl py-2 text-sm font-medium transition-all duration-200 ${link.path === '/' ? 'px-2 py-1.5' : 'px-3.5'} ${
+                  className={`relative flex items-center gap-2 rounded-xl py-2 text-sm font-medium transition-all duration-200 ${link.path === '/' ? 'px-2 py-1' : 'px-3.5'} ${
                     active
                       ? 'bg-[#d4a574]/20 text-[#d4a574]'
                       : 'text-[#f5f1e8]/90 hover:bg-[#f5f1e8]/10 hover:text-[#f5f1e8]'
@@ -46,7 +46,7 @@ export default function Navigation() {
                     <img
                       src="https://i.ibb.co/ZRjJwkwB/Chat-GPT-Image-Feb-13-2026-01-44-24-AM.png"
                       alt="Home"
-                      className="h-7 w-7 rounded-md object-cover"
+                      className="h-9 w-9 rounded-md object-cover"
                     />
                   ) : (
                     (() => {
