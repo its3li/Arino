@@ -20,7 +20,7 @@ export default function Home() {
             <img
               src="https://i.ibb.co/67GWSTLC/Chat-GPT-Image-Feb-13-2026-02-03-18-AM.png"
               alt="Arino"
-              className="w-32 sm:w-36 md:w-40 lg:w-44 h-auto mx-auto drop-shadow-2xl rounded-2xl"
+              className="w-96 sm:w-[27rem] md:w-[30rem] lg:w-[33rem] h-auto mx-auto drop-shadow-2xl rounded-2xl"
             />
             <p className="mt-4 text-xl sm:text-2xl text-[#d4a574] font-light text-center w-full" dir="rtl">
               علمٌ يُستفاد، ونورٌ يُستزاد

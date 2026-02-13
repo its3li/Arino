@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Home, Briefcase, Users, Wrench, Mail } from 'lucide-react';
+import { Menu, X, Globe, Briefcase, Users, Wrench, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Navigation() {
@@ -18,7 +18,7 @@ export default function Navigation() {
   }, [isOpen]);
 
   const navLinks = [
-    { path: '/', label: 'الرئيسية', labelEn: 'Home', icon: Home },
+    { path: '/', label: 'الرئيسية', labelEn: 'Home' },
     { path: '/portfolio', label: 'استعراض مشاريع', labelEn: 'Portfolio', icon: Briefcase },
     { path: '/about', label: 'من نحن', labelEn: 'About Us', icon: Users },
     { path: '/services', label: 'بنعمل ايه', labelEn: 'Services', icon: Wrench },
@@ -32,8 +32,6 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-1 rounded-2xl border border-[#f5f1e8]/20 bg-[#071725]/75 backdrop-blur-xl px-2 py-1.5 shadow-lg">
             {navLinks.map((link) => {
               const active = location.pathname === link.path;
-              const Icon = link.icon;
-
               return (
                 <Link
                   key={link.path}
@@ -44,7 +42,18 @@ export default function Navigation() {
                       : 'text-[#f5f1e8]/90 hover:bg-[#f5f1e8]/10 hover:text-[#f5f1e8]'
                   }`}
                 >
-                  <Icon size={17} />
+                  {link.path === '/' ? (
+                    <img
+                      src="https://i.ibb.co/ZRjJwkwB/Chat-GPT-Image-Feb-13-2026-01-44-24-AM.png"
+                      alt="Home"
+                      className="h-[18px] w-[18px] rounded-sm object-cover"
+                    />
+) : (
+                    (() => {
+                      const Icon = link.icon;
+                      return Icon ? <Icon size={17} /> : null;
+                    })()
+                  )}
                   {link.path !== '/' && (
                     <span className="whitespace-nowrap">{isArabic ? link.label : link.labelEn}</span>
                   )}
