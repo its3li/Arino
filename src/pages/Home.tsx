@@ -22,7 +22,7 @@ export default function Home() {
               alt="Arino"
               className="w-96 sm:w-[27rem] md:w-[30rem] lg:w-[33rem] h-auto mx-auto drop-shadow-2xl rounded-2xl"
             />
-            <p className="mt-4 text-xl sm:text-2xl text-[#d4a574] font-light text-center w-full" dir="rtl">
+            <p className="mt-1.5 text-xl sm:text-2xl text-[#d4a574] font-light text-center w-full" dir="rtl">
               علمٌ يُستفاد، ونورٌ يُستزاد
             </p>
           </div>
