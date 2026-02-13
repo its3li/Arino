@@ -29,14 +29,6 @@ export default function Navigation() {
     <>
       <nav className="fixed top-3 left-0 right-0 z-50 px-3">
         <div className="relative h-16 sm:h-18 md:h-20 flex items-center justify-center">
-          <Link to="/" className="absolute left-0 top-1/2 -translate-y-1/2 px-2">
-            <img
-              src="https://i.ibb.co/ZRjJwkwB/Chat-GPT-Image-Feb-13-2026-01-44-24-AM.png"
-              alt="Arino"
-              className="h-9 sm:h-10 w-auto"
-            />
-          </Link>
-
           <div className="hidden md:flex items-center gap-1 rounded-2xl border border-[#f5f1e8]/20 bg-[#071725]/75 backdrop-blur-xl px-2 py-1.5 shadow-lg">
             {navLinks.map((link) => {
               const active = location.pathname === link.path;
@@ -46,14 +38,16 @@ export default function Navigation() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-medium transition-all duration-200 ${
+                  className={`relative flex items-center gap-2 rounded-xl py-2 text-sm font-medium transition-all duration-200 ${link.path === '/' ? 'px-2.5' : 'px-3.5'} ${
                     active
                       ? 'bg-[#d4a574]/20 text-[#d4a574]'
                       : 'text-[#f5f1e8]/90 hover:bg-[#f5f1e8]/10 hover:text-[#f5f1e8]'
                   }`}
                 >
                   <Icon size={17} />
-                  <span className="whitespace-nowrap">{isArabic ? link.label : link.labelEn}</span>
+                  {link.path !== '/' && (
+                    <span className="whitespace-nowrap">{isArabic ? link.label : link.labelEn}</span>
+                  )}
                 </Link>
               );
             })}

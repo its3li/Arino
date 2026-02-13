@@ -18,7 +18,7 @@ export default function Home() {
         <div className="text-center animate-fade-in flex flex-col items-center">
           <div className="flex w-full flex-col items-center justify-center">
             <img
-              src="https://i.ibb.co/67RhGBk1/Make-it-a-2k-202602130044.jpg"
+              src="https://i.ibb.co/67GWSTLC/Chat-GPT-Image-Feb-13-2026-02-03-18-AM.png"
               alt="Arino"
               className="w-32 sm:w-36 md:w-40 lg:w-44 h-auto mx-auto drop-shadow-2xl rounded-2xl"
             />
