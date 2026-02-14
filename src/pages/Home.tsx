@@ -3,7 +3,7 @@ import { AuroraBackground } from '@/components/ui/aurora-background';
 
 export default function Home() {
   return (
-    <AuroraBackground className="relative min-h-screen overflow-hidden bg-transparent">
+    <AuroraBackground className="relative min-h-screen overflow-hidden bg-zinc-950">
       <div className="relative z-30 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center animate-fade-in flex flex-col items-center">
           <div className="flex w-full flex-col items-center justify-center">
