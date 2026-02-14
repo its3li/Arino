@@ -6,13 +6,11 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0">
         <ShadowOverlayBackground
-          color="rgba(20, 52, 76, 1)"
           animation={{ scale: 65, speed: 45 }}
           noise={{ opacity: 0.2, scale: 0.55 }}
           className="w-full h-full"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#06121bcc] via-[#10293c99] to-[#071725cc]" />
 
       <div className="relative z-30 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center animate-fade-in flex flex-col items-center">
