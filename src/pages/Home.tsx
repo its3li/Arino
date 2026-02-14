@@ -1,17 +1,9 @@
 import { Link } from 'react-router-dom';
-import ShadowOverlayBackground from '../components/ShadowOverlayBackground';
+import { AuroraBackground } from '@/components/ui/aurora-background';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div className="absolute inset-0">
-        <ShadowOverlayBackground
-          animation={{ scale: 65, speed: 45 }}
-          noise={{ opacity: 0.2, scale: 0.55 }}
-          className="w-full h-full"
-        />
-      </div>
-
+    <AuroraBackground className="relative min-h-screen overflow-hidden bg-transparent">
       <div className="relative z-30 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center animate-fade-in flex flex-col items-center">
           <div className="flex w-full flex-col items-center justify-center">
@@ -50,6 +42,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </AuroraBackground>
   );
 }
