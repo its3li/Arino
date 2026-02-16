@@ -5,30 +5,13 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { isArabic, toggleLanguage } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  useEffect(() => setIsOpen(false), [location]);
 
   useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -39,101 +22,77 @@ export default function Navigation() {
     { path: '/portfolio', label: 'استعراض مشاريع', labelEn: 'Portfolio' },
     { path: '/about', label: 'من نحن', labelEn: 'About Us' },
     { path: '/services', label: 'بنعمل ايه', labelEn: 'Services' },
-    { path: '/contact', label: 'تواصل معنا', labelEn: 'Contact' },
+    { path: '/contact', label: 'تواصل معنا', labelEn: 'Contact' }
   ];
-
-  // Only use transparent navbar on homepage
-  const isHomePage = location.pathname === '/';
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isHomePage && !scrolled
-            ? 'bg-transparent'
-            : 'bg-[#1a3a52] shadow-lg'
-          }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link to="/" className="flex items-center">
-              <img
-                src="https://i.ibb.co/sdxz1mCC/Invert-the-two-2k-202602110037.png"
-                alt="Arino"
-                className="h-20 sm:h-24 md:h-28 w-auto"
-              />
-            </Link>
-
-            <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-              {navLinks.map((link) => (
+      <nav className="fixed top-3 left-0 right-0 z-50 px-3">
+        <div className="relative h-16 sm:h-18 md:h-20 flex items-center justify-center">
+          <div className="hidden md:flex items-center gap-1 rounded-2xl border border-[#2a4f73]/50 bg-[#071725]/90 backdrop-blur-xl px-2 py-1.5 shadow-lg">
+            {navLinks.map((link) => {
+              const active = location.pathname === link.path;
+              return (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-medium transition-colors hover:text-[#d4a574] ${location.pathname === link.path
-                    ? 'text-[#d4a574]'
-                    : 'text-[#f5f1e8]'
-                    }`}
+                  className={`relative flex items-center justify-center rounded-xl py-2 px-3.5 text-sm font-medium transition-all duration-200 ${
+                    active
+                      ? 'bg-[#60a5fa]/20 text-[#93c5fd] border border-[#60a5fa]/35'
+                      : 'text-[#cfe3ff]/90 hover:bg-[#cfe3ff]/10 hover:text-[#cfe3ff] border border-transparent'
+                  }`}
                 >
-                  {isArabic ? link.label : link.labelEn}
+                  <span className="whitespace-nowrap">{isArabic ? link.label : link.labelEn}</span>
                 </Link>
-              ))}
+              );
+            })}
 
-              {/* Language Toggle Button */}
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-2 px-3 py-1.5 bg-[#d4a574]/20 hover:bg-[#d4a574]/40 rounded-full text-[#f5f1e8] text-sm font-medium transition-all"
-                aria-label="Toggle language"
-              >
-                <Globe size={16} />
-                <span>{isArabic ? 'EN' : 'عربي'}</span>
-              </button>
-            </div>
+            <div className="mx-1 h-6 w-px bg-[#2a4f73]/70" />
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 rounded-xl border border-[#2a4f73] px-3.5 py-2 text-sm font-medium text-[#cfe3ff] hover:bg-[#cfe3ff]/10"
+              aria-label="Toggle language"
+            >
+              <Globe size={16} />
+              <span>{isArabic ? 'EN' : 'عربي'}</span>
+            </button>
+          </div>
 
-            <div className="md:hidden flex items-center gap-3">
-              {/* Mobile Language Toggle */}
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-1 px-2 py-1 bg-[#d4a574]/20 hover:bg-[#d4a574]/40 rounded-full text-[#f5f1e8] text-xs font-medium transition-all"
-                aria-label="Toggle language"
-              >
-                <Globe size={14} />
-                <span>{isArabic ? 'EN' : 'عربي'}</span>
-              </button>
-
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-[#f5f1e8] hover:text-[#d4a574] transition-colors"
-                aria-label="Toggle menu"
-              >
-                <Menu size={24} />
-              </button>
-            </div>
+          <div className="md:hidden ml-auto flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 px-2 py-1.5 rounded-lg border border-[#2a4f73] text-[#cfe3ff] bg-[#071725]/90"
+              aria-label="Toggle language"
+            >
+              <Globe size={14} />
+              <span className="text-xs font-medium">{isArabic ? 'EN' : 'عربي'}</span>
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg border border-[#2a4f73] text-[#cfe3ff] bg-[#071725]/90"
+              aria-label="Toggle menu"
+            >
+              <Menu size={22} />
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Sidebar Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 z-[60] transition-opacity duration-300 md:hidden ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-          }`}
+        className={`fixed inset-0 bg-black/60 z-[60] transition-opacity duration-300 md:hidden ${
+          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
         onClick={() => setIsOpen(false)}
       />
 
-      {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 ${isArabic ? 'left-0' : 'right-0'} h-full w-72 bg-[#1a3a52] z-[70] transform transition-transform duration-300 ease-out md:hidden ${isOpen ? 'translate-x-0' : isArabic ? '-translate-x-full' : 'translate-x-full'
-          }`}
+        className={`fixed top-0 ${isArabic ? 'left-0' : 'right-0'} h-full w-72 bg-[#071725]/95 border-l border-[#2a4f73]/70 z-[70] transform transition-transform duration-300 ease-out md:hidden ${
+          isOpen ? 'translate-x-0' : isArabic ? '-translate-x-full' : 'translate-x-full'
+        }`}
       >
-        <div className="flex items-center justify-between p-6 border-b border-[#d4a574]/20">
-          <img
-            src="https://i.ibb.co/sdxz1mCC/Invert-the-two-2k-202602110037.png"
-            alt="Arino"
-            className="h-16 w-auto"
-          />
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-[#f5f1e8] hover:text-[#d4a574] transition-colors"
-            aria-label="Close menu"
-          >
+        <div className="flex items-center justify-between p-6 border-b border-[#2a4f73]/50">
+          <span className="text-[#cfe3ff] font-semibold">ARINO</span>
+          <button onClick={() => setIsOpen(false)} className="text-[#cfe3ff] hover:text-[#93c5fd]" aria-label="Close menu">
             <X size={24} />
           </button>
         </div>
@@ -143,10 +102,11 @@ export default function Navigation() {
             <Link
               key={link.path}
               to={link.path}
-              className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors ${location.pathname === link.path
-                ? 'bg-[#d4a574]/10 text-[#d4a574]'
-                : 'text-[#f5f1e8] hover:bg-[#f5f1e8]/5'
-                }`}
+              className={`block px-4 py-3 text-base font-medium rounded-xl transition-colors ${
+                location.pathname === link.path
+                  ? 'bg-[#60a5fa]/15 text-[#93c5fd] border border-[#60a5fa]/35'
+                  : 'text-[#cfe3ff] hover:bg-[#cfe3ff]/5 border border-transparent'
+              }`}
             >
               {isArabic ? link.label : link.labelEn}
             </Link>
@@ -156,4 +116,3 @@ export default function Navigation() {
     </>
   );
 }
-
