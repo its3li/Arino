@@ -19,52 +19,38 @@ export default function Navigation() {
 
   const navLinks = [
     { path: '/', label: 'الرئيسية', labelEn: 'Home' },
-    { path: '/portfolio', label: 'استعراض مشاريع', labelEn: 'Portfolio', icon: Briefcase },
-    { path: '/about', label: 'من نحن', labelEn: 'About Us', icon: Users },
-    { path: '/services', label: 'بنعمل ايه', labelEn: 'Services', icon: Wrench },
-    { path: '/contact', label: 'تواصل معنا', labelEn: 'Contact', icon: Mail }
+    { path: '/portfolio', label: 'استعراض مشاريع', labelEn: 'Portfolio' },
+    { path: '/about', label: 'من نحن', labelEn: 'About Us' },
+    { path: '/services', label: 'بنعمل ايه', labelEn: 'Services' },
+    { path: '/contact', label: 'تواصل معنا', labelEn: 'Contact' }
   ];
 
   return (
     <>
       <nav className="fixed top-3 left-0 right-0 z-50 px-3">
         <div className="relative h-16 sm:h-18 md:h-20 flex items-center justify-center">
-          <div className="hidden md:flex items-center gap-1 rounded-2xl border border-[#f5f1e8]/20 bg-[#071725]/75 backdrop-blur-xl px-2 py-1.5 shadow-lg">
+          <div className="hidden md:flex items-center gap-1 rounded-2xl border border-[#2a4f73]/50 bg-[#071725]/90 backdrop-blur-xl px-2 py-1.5 shadow-lg">
             {navLinks.map((link) => {
               const active = location.pathname === link.path;
               return (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative flex items-center justify-center gap-2 rounded-xl py-2 text-sm font-medium transition-all duration-200 ${link.path === '/' ? 'h-14 w-14 justify-center p-0' : 'px-3.5'} ${
+                  className={`relative flex items-center justify-center rounded-xl py-2 px-3.5 text-sm font-medium transition-all duration-200 ${
                     active
-                      ? 'bg-[#d4a574]/20 text-[#d4a574]'
-                      : 'text-[#f5f1e8]/90 hover:bg-[#f5f1e8]/10 hover:text-[#f5f1e8]'
+                      ? 'bg-[#60a5fa]/20 text-[#93c5fd] border border-[#60a5fa]/35'
+                      : 'text-[#cfe3ff]/90 hover:bg-[#cfe3ff]/10 hover:text-[#cfe3ff] border border-transparent'
                   }`}
                 >
-                  {link.path === '/' ? (
-                    <img
-                      src="https://i.ibb.co/ZRjJwkwB/Chat-GPT-Image-Feb-13-2026-01-44-24-AM.png"
-                      alt="Home"
-                      className="h-14 w-14 rounded-md object-cover"
-                    />
-                  ) : (
-                    (() => {
-                      const Icon = link.icon;
-                      return Icon ? <Icon size={17} /> : null;
-                    })()
-                  )}
-                  {link.path !== '/' && (
-                    <span className="whitespace-nowrap">{isArabic ? link.label : link.labelEn}</span>
-                  )}
+                  <span className="whitespace-nowrap">{isArabic ? link.label : link.labelEn}</span>
                 </Link>
               );
             })}
 
-            <div className="mx-1 h-6 w-px bg-[#f5f1e8]/15" />
+            <div className="mx-1 h-6 w-px bg-[#2a4f73]/70" />
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 rounded-xl border border-[#f5f1e8]/25 px-3.5 py-2 text-sm font-medium text-[#f5f1e8] hover:bg-[#f5f1e8]/10"
+              className="flex items-center gap-2 rounded-xl border border-[#2a4f73] px-3.5 py-2 text-sm font-medium text-[#cfe3ff] hover:bg-[#cfe3ff]/10"
               aria-label="Toggle language"
             >
               <Globe size={16} />
@@ -75,7 +61,7 @@ export default function Navigation() {
           <div className="md:hidden ml-auto flex items-center gap-2">
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1 px-2 py-1.5 rounded-lg border border-[#d4a574]/30 text-[#f5f1e8] bg-[#071725]/75"
+              className="flex items-center gap-1 px-2 py-1.5 rounded-lg border border-[#2a4f73] text-[#cfe3ff] bg-[#071725]/90"
               aria-label="Toggle language"
             >
               <Globe size={14} />
@@ -83,7 +69,7 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg border border-[#d4a574]/30 text-[#f5f1e8] bg-[#071725]/75"
+              className="p-2 rounded-lg border border-[#2a4f73] text-[#cfe3ff] bg-[#071725]/90"
               aria-label="Toggle menu"
             >
               <Menu size={22} />
@@ -100,13 +86,13 @@ export default function Navigation() {
       />
 
       <div
-        className={`fixed top-0 ${isArabic ? 'left-0' : 'right-0'} h-full w-72 bg-[#081a28]/95 border-l border-[#d4a574]/25 z-[70] transform transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed top-0 ${isArabic ? 'left-0' : 'right-0'} h-full w-72 bg-[#071725]/95 border-l border-[#2a4f73]/70 z-[70] transform transition-transform duration-300 ease-out md:hidden ${
           isOpen ? 'translate-x-0' : isArabic ? '-translate-x-full' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between p-6 border-b border-[#d4a574]/20">
-          <img src="https://i.ibb.co/ZRjJwkwB/Chat-GPT-Image-Feb-13-2026-01-44-24-AM.png" alt="Arino" className="h-14 w-auto" />
-          <button onClick={() => setIsOpen(false)} className="text-[#f5f1e8] hover:text-[#d4a574]" aria-label="Close menu">
+        <div className="flex items-center justify-between p-6 border-b border-[#2a4f73]/50">
+          <span className="text-[#cfe3ff] font-semibold">ARINO</span>
+          <button onClick={() => setIsOpen(false)} className="text-[#cfe3ff] hover:text-[#93c5fd]" aria-label="Close menu">
             <X size={24} />
           </button>
         </div>
@@ -118,8 +104,8 @@ export default function Navigation() {
               to={link.path}
               className={`block px-4 py-3 text-base font-medium rounded-xl transition-colors ${
                 location.pathname === link.path
-                  ? 'bg-[#d4a574]/15 text-[#d4a574] border border-[#d4a574]/35'
-                  : 'text-[#f5f1e8] hover:bg-[#f5f1e8]/5 border border-transparent'
+                  ? 'bg-[#60a5fa]/15 text-[#93c5fd] border border-[#60a5fa]/35'
+                  : 'text-[#cfe3ff] hover:bg-[#cfe3ff]/5 border border-transparent'
               }`}
             >
               {isArabic ? link.label : link.labelEn}

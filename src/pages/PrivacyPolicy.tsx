@@ -4,13 +4,13 @@ export default function PrivacyPolicy() {
   const { isArabic } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-[#f5f1e8] pt-28 pb-16">
+    <div className="min-h-screen bg-[#071725] pt-28 pb-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#1a3a52] mb-6">
+        <div className="bg-[#071725] rounded-3xl shadow-xl p-8 md:p-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#cfe3ff] mb-6">
             {isArabic ? 'سياسة الخصوصية' : 'Privacy Policy'}
           </h1>
-          <div className="space-y-4 text-[#1a3a52]/80 leading-relaxed" dir={isArabic ? 'rtl' : 'ltr'}>
+          <div className="space-y-4 text-[#cfe3ff]/80 leading-relaxed" dir={isArabic ? 'rtl' : 'ltr'}>
             <p>
               {isArabic
                 ? 'نحن لا نجمع أو نخزن أو نشارك أي بيانات شخصية من زوار هذا الموقع.'

@@ -15,7 +15,7 @@ function AppLayout() {
   const showFooter = location.pathname !== '/';
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="dark min-h-screen flex flex-col bg-[#071725] text-[#cfe3ff]">
       <Navigation />
       <main className="flex-1">
         <Routes>

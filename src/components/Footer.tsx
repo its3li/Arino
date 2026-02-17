@@ -26,9 +26,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative text-[#f5f1e8] bg-[#071725]">
-      <div className="bg-[radial-gradient(35%_80%_at_30%_0%,rgba(245,241,232,0.1),transparent)] mx-auto max-w-4xl md:border-x border-[#d4a574]/20">
-        <div className="bg-[#d4a574]/20 absolute inset-x-0 h-px w-full" />
+    <footer className="relative text-[#cfe3ff] bg-[#071725]">
+      <div className="bg-[radial-gradient(35%_80%_at_30%_0%,rgba(96,165,250,0.12),transparent)] mx-auto max-w-4xl md:border-x border-[#60a5fa]/20">
+        <div className="bg-[#60a5fa]/20 absolute inset-x-0 h-px w-full" />
 
         <div className="grid max-w-4xl grid-cols-6 gap-6 p-4">
           <div className="col-span-6 flex flex-col gap-5 md:col-span-4">
@@ -39,7 +39,7 @@ export default function Footer() {
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="max-w-sm font-mono text-sm text-balance text-[#f5f1e8]/70" dir={isArabic ? 'rtl' : 'ltr'}>
+            <p className="max-w-sm font-mono text-sm text-balance text-[#cfe3ff]/70" dir={isArabic ? 'rtl' : 'ltr'}>
               {isArabic
                 ? 'منصة رقمية متكاملة لبناء منتجات تقنية حديثة بتجربة استخدام عالية الجودة.'
                 : 'A comprehensive digital technology platform built for modern product experiences.'}
@@ -48,7 +48,7 @@ export default function Footer() {
               {socialLinks.map((item, i) => (
                 <a
                   key={i}
-                  className="hover:bg-[#d4a574]/20 rounded-md border border-[#d4a574]/25 p-1.5"
+                  className="hover:bg-[#60a5fa]/20 rounded-md border border-[#60a5fa]/25 p-1.5"
                   target="_blank"
                   rel="noopener noreferrer"
                   href={item.link}
@@ -60,7 +60,7 @@ export default function Footer() {
           </div>
 
           <div className="col-span-3 w-full md:col-span-1">
-            <span className="mb-1 text-xs text-[#f5f1e8]/60">{isArabic ? 'الموارد' : 'Resources'}</span>
+            <span className="mb-1 text-xs text-[#cfe3ff]/60">{isArabic ? 'الموارد' : 'Resources'}</span>
             <div className="flex flex-col gap-1">
               {resources.map(({ href, title }, i) => (
                 <Link key={i} className="w-max py-1 text-sm duration-200 hover:underline" to={href}>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           <div className="col-span-3 w-full md:col-span-1">
-            <span className="mb-1 text-xs text-[#f5f1e8]/60">{isArabic ? 'الشركة' : 'Company'}</span>
+            <span className="mb-1 text-xs text-[#cfe3ff]/60">{isArabic ? 'الشركة' : 'Company'}</span>
             <div className="flex flex-col gap-1">
               {company.map(({ href, title }, i) => (
                 <Link key={i} className="w-max py-1 text-sm duration-200 hover:underline" to={href}>
@@ -82,9 +82,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="bg-[#d4a574]/20 absolute inset-x-0 h-px w-full" />
+        <div className="bg-[#60a5fa]/20 absolute inset-x-0 h-px w-full" />
         <div className="flex max-w-4xl flex-col justify-between gap-2 pt-2 pb-5">
-          <p className="text-center font-thin text-[#f5f1e8]/65" dir={isArabic ? 'rtl' : 'ltr'}>
+          <p className="text-center font-thin text-[#cfe3ff]/65" dir={isArabic ? 'rtl' : 'ltr'}>
             © Arino. {isArabic ? 'جميع الحقوق محفوظة' : 'All rights reserved'} {year}
           </p>
         </div>
