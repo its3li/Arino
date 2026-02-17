@@ -37,7 +37,7 @@ const sampleProjects: Project[] = [
     categories: ['Android App', 'Mobile'],
     categories_ar: ['تطبيق أندرويد', 'جوال'],
     image_url: 'https://i.ibb.co/67RhGBk1/Make-it-a-2k-202602130044.jpg',
-    project_url: null
+    project_url: 'https://aniro.vercel.app/'
   }
 ];
 
@@ -46,7 +46,6 @@ export default function Portfolio() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [loading, setLoading] = useState(true);
-  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -135,26 +134,19 @@ export default function Portfolio() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="relative aspect-video overflow-hidden bg-[#1a3a52]/5">
-                  {!loadedImages[project.id] && <div className="absolute inset-0 animate-pulse bg-[#1a3a52]/10" />}
                   <img
                     src={project.image_url}
                     alt={isArabic ? project.title_ar : project.title}
-                    loading="lazy"
-                    decoding="async"
-                    onLoad={() => setLoadedImages((prev) => ({ ...prev, [project.id]: true }))}
-                    onError={() => setLoadedImages((prev) => ({ ...prev, [project.id]: true }))}
-                    className={`w-full h-full object-contain transition-all duration-500 group-hover:scale-105 ${
-                      loadedImages[project.id] ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                   {project.project_url && (
                     <a
                       href={project.project_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute top-4 right-4 p-2.5 bg-[#1a3a52] rounded-full border border-white/80 shadow-lg hover:bg-[#d4a574] transition-colors"
+                      className="absolute top-4 right-4 p-2 bg-[#f5f1e8] rounded-full hover:bg-[#d4a574]"
                     >
-                      <ExternalLink size={20} className="text-[#f5f1e8]" />
+                      <ExternalLink size={20} className="text-[#1a3a52]" />
                     </a>
                   )}
                 </div>
@@ -176,11 +168,6 @@ export default function Portfolio() {
                   <p className="text-[#1a3a52]/70 line-clamp-3" dir={isArabic ? 'rtl' : 'ltr'}>
                     {isArabic ? project.description_ar : project.description}
                   </p>
-                  {!project.project_url && (
-                    <p className="mt-3 text-sm font-semibold text-[#d4a574]" dir={isArabic ? 'rtl' : 'ltr'}>
-                      {isArabic ? 'قريبًا' : 'Coming Soon'}
-                    </p>
-                  )}
                 </div>
               </div>
             ))}

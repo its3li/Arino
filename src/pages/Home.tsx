@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AuroraBackground } from '@/components/ui/aurora-background';
-import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Home() {
-  const { isArabic } = useLanguage();
   return (
     <AuroraBackground className="relative min-h-screen overflow-hidden bg-zinc-950">
       <div className="relative z-30 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -12,28 +10,17 @@ export default function Home() {
             <img
               src="https://i.ibb.co/67GWSTLC/Chat-GPT-Image-Feb-13-2026-02-03-18-AM.png"
               alt="Arino"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
               className="w-96 sm:w-[27rem] md:w-[30rem] lg:w-[33rem] h-auto mx-auto drop-shadow-2xl rounded-2xl"
             />
-            <p
-              className="-mt-32 sm:-mt-36 md:-mt-40 lg:-mt-44 text-xl sm:text-2xl text-[#d4a574] font-light text-center w-full"
-              dir={isArabic ? 'rtl' : 'ltr'}
-            >
-              {isArabic ? 'علمٌ يُستفاد، ونورٌ يُستزاد' : 'Knowledge to Benefit, Light to Grow'}
+            <p className="-mt-32 sm:-mt-36 md:-mt-40 lg:-mt-44 text-xl sm:text-2xl text-[#d4a574] font-light text-center w-full" dir="rtl">
+              علمٌ يُستفاد، ونورٌ يُستزاد
             </p>
           </div>
 
-          <p
-            className="mt-6 text-lg sm:text-xl text-[#f5f1e8]/90 max-w-2xl mx-auto mb-10 text-center leading-[1.65]"
-            dir={isArabic ? 'rtl' : 'ltr'}
-          >
-            <span className="block mb-2">
-              {isArabic ? 'نضيء التميز عبر الابتكار الإبداعي' : 'Illuminating Excellence Through Creative Innovation'}
-            </span>
-            <span className="block text-base">
-              {isArabic ? 'نحول أفكارك إلى واقع رقمي مبتكر' : 'We turn your ideas into an innovative digital reality'}
+          <p className="mt-6 text-lg sm:text-xl text-[#f5f1e8]/90 max-w-2xl mx-auto mb-10 text-center leading-[1.65]">
+            <span className="block mb-2">Illuminating Excellence Through Creative Innovation</span>
+            <span className="block text-base" dir="rtl">
+              نحول أفكارك إلى واقع رقمي مبتكر
             </span>
           </p>
 
@@ -42,13 +29,15 @@ export default function Home() {
               to="/portfolio"
               className="min-w-[190px] px-7 py-3.5 bg-[#d4a574] text-[#1a3a52] rounded-xl text-base font-semibold hover:bg-[#d4a574]/90 transition-all transform hover:scale-[1.02] shadow-xl"
             >
-              {isArabic ? 'استعراض أعمالنا' : 'View Our Work'}
+              <span className="rtl:hidden">View Our Work</span>
+              <span className="ltr:hidden">استعراض أعمالنا</span>
             </Link>
             <Link
               to="/contact"
               className="min-w-[190px] px-7 py-3.5 bg-transparent border-2 border-[#f5f1e8] text-[#f5f1e8] rounded-xl text-base font-semibold hover:bg-[#f5f1e8] hover:text-[#1a3a52] transition-all transform hover:scale-[1.02]"
             >
-              {isArabic ? 'تواصل معنا' : 'Get In Touch'}
+              <span className="rtl:hidden">Get In Touch</span>
+              <span className="ltr:hidden">تواصل معنا</span>
             </Link>
           </div>
         </div>
