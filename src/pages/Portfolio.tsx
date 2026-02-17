@@ -37,7 +37,7 @@ const sampleProjects: Project[] = [
     categories: ['Android App', 'Mobile'],
     categories_ar: ['تطبيق أندرويد', 'جوال'],
     image_url: 'https://i.ibb.co/67RhGBk1/Make-it-a-2k-202602130044.jpg',
-    project_url: 'https://aniro.vercel.app/'
+    project_url: null
   }
 ];
 
@@ -46,6 +46,7 @@ export default function Portfolio() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [loading, setLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -71,58 +72,21 @@ export default function Portfolio() {
     if (!project) return cat;
 
     const categoryIndex = project.categories.indexOf(cat);
-    return project.categories_ar[categoryIndex] || cat;
-  };
-
-  return (
-    <div className="min-h-screen bg-[#071725] pt-28 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#cfe3ff] mb-4">
-            {isArabic ? 'استعراض مشاريع' : 'Our Portfolio'}
-          </h1>
-          <p className="text-lg text-[#cfe3ff]/70 max-w-2xl mx-auto" dir={isArabic ? 'rtl' : 'ltr'}>
-            {isArabic
-              ? 'استكشف مشاريعنا الإبداعية وحلولنا المبتكرة'
-              : 'Explore our creative projects and innovative solutions'}
-          </p>
-        </div>
-
-        <div className="flex items-center justify-center gap-4 mb-12 flex-wrap">
-          <div className="flex items-center gap-2 text-[#cfe3ff]">
-            <Filter size={20} />
-            <span className="font-medium">{isArabic ? 'تصنيف:' : 'Filter:'}</span>
-          </div>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-2 rounded-full font-medium transition-all transform hover:scale-105 ${
-                selectedCategory === cat
-                  ? 'bg-[#071725] text-[#cfe3ff] shadow-lg'
-                  : 'bg-[#071725] text-[#cfe3ff] hover:bg-[#2a4f73]/40'
-              }`}
-            >
-              {getCategoryLabel(cat)}
-            </button>
-          ))}
-        </div>
-
-        {loading ? (
+@@ -112,68 +113,80 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(2)].map((_, i) => (
-              <div key={i} className="bg-[#071725] rounded-2xl overflow-hidden shadow-lg animate-pulse">
-                <div className="h-64 bg-[#2a4f73]/40" />
+              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg animate-pulse">
+                <div className="h-64 bg-[#1a3a52]/10" />
                 <div className="p-6 space-y-3">
-                  <div className="h-6 bg-[#2a4f73]/40 rounded" />
-                  <div className="h-4 bg-[#2a4f73]/40 rounded w-3/4" />
+                  <div className="h-6 bg-[#1a3a52]/10 rounded" />
+                  <div className="h-4 bg-[#1a3a52]/10 rounded w-3/4" />
                 </div>
               </div>
             ))}
           </div>
         ) : filteredProjects.length === 0 ? (
           <div className="text-center py-20">
-            <p className="text-xl text-[#cfe3ff]/60" dir={isArabic ? 'rtl' : 'ltr'}>
+            <p className="text-xl text-[#1a3a52]/60" dir={isArabic ? 'rtl' : 'ltr'}>
               {isArabic ? 'لا توجد مشاريع في هذا التصنيف' : 'No projects found in this category'}
             </p>
           </div>
@@ -131,22 +95,29 @@ export default function Portfolio() {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-[#071725] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="relative aspect-video overflow-hidden bg-[#2a4f73]/30">
+                <div className="relative aspect-video overflow-hidden bg-[#1a3a52]/5">
+                  {!loadedImages[project.id] && <div className="absolute inset-0 animate-pulse bg-[#1a3a52]/10" />}
                   <img
                     src={project.image_url}
                     alt={isArabic ? project.title_ar : project.title}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={() => setLoadedImages((prev) => ({ ...prev, [project.id]: true }))}
+                    onError={() => setLoadedImages((prev) => ({ ...prev, [project.id]: true }))}
+                    className={`w-full h-full object-contain transition-all duration-500 group-hover:scale-105 ${
+                      loadedImages[project.id] ? 'opacity-100' : 'opacity-0'
+                    }`}
                   />
                   {project.project_url && (
                     <a
                       href={project.project_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute top-4 right-4 p-2 bg-[#cfe3ff] rounded-full hover:bg-[#60a5fa]"
+                      className="absolute top-4 right-4 p-2.5 bg-[#1a3a52] rounded-full border border-white/80 shadow-lg hover:bg-[#d4a574] transition-colors"
                     >
-                      <ExternalLink size={20} className="text-[#cfe3ff]" />
+                      <ExternalLink size={20} className="text-[#f5f1e8]" />
                     </a>
                   )}
                 </div>
@@ -156,18 +127,23 @@ export default function Portfolio() {
                     {(isArabic ? project.categories_ar : project.categories).map((category) => (
                       <span
                         key={`${project.id}-${category}`}
-                        className="inline-block px-3 py-1 bg-[#60a5fa]/20 text-[#cfe3ff] text-xs font-semibold rounded-full"
+                        className="inline-block px-3 py-1 bg-[#d4a574]/20 text-[#1a3a52] text-xs font-semibold rounded-full"
                       >
                         {category}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-xl font-bold text-[#cfe3ff] mb-2" dir={isArabic ? 'rtl' : 'ltr'}>
+                  <h3 className="text-xl font-bold text-[#1a3a52] mb-2" dir={isArabic ? 'rtl' : 'ltr'}>
                     {isArabic ? project.title_ar : project.title}
                   </h3>
-                  <p className="text-[#cfe3ff]/70 line-clamp-3" dir={isArabic ? 'rtl' : 'ltr'}>
+                  <p className="text-[#1a3a52]/70 line-clamp-3" dir={isArabic ? 'rtl' : 'ltr'}>
                     {isArabic ? project.description_ar : project.description}
                   </p>
+                  {!project.project_url && (
+                    <p className="mt-3 text-sm font-semibold text-[#d4a574]" dir={isArabic ? 'rtl' : 'ltr'}>
+                      {isArabic ? 'قريبًا' : 'Coming Soon'}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
