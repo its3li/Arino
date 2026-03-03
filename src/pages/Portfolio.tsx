@@ -25,7 +25,7 @@ const sampleProjects: Project[] = [
       'أداة بحثية متقدمة تعتمد على الذكاء الاصطناعي، صُممت بدقة لتقديم الإجابات المستنبطة من القرآن والسنة بفهم سلف الأمة.',
     categories: ['Websites', 'AI'],
     categories_ar: ['مواقع إلكترونية', 'ذكاء اصطناعي'],
-    image_url: 'https://i.ibb.co/dJ2QCRZZ/Fill-the-edges-2k-202602130113.jpg',
+    image_url: 'https://i.ibb.co/wrY89j8p/Make-it-dark-blue-theme-2k-delpmaspu.jpg',
     project_url: 'https://salaf-ai.vercel.app/'
   },
   {
