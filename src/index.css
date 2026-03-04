@@ -71,26 +71,26 @@
   .card-corners::after {
     content: '';
     position: absolute;
-    width: 3.5rem;
-    height: 3.5rem;
-    border: 2px solid rgba(147, 197, 253, 0.7);
+    width: 4.2rem;
+    height: 4.2rem;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
   }
 
   .card-corners::before {
-    top: 0.65rem;
-    left: 0.65rem;
-    border-right: 0;
-    border-bottom: 0;
-    border-top-left-radius: 0.75rem;
+    top: 0.5rem;
+    left: 0.5rem;
+    border-top: 3px solid #38bdf8;
+    border-left: 3px solid #22d3ee;
+    border-top-left-radius: 0.95rem;
   }
 
   .card-corners::after {
-    right: 0.65rem;
-    bottom: 0.65rem;
-    border-left: 0;
-    border-top: 0;
-    border-bottom-right-radius: 0.75rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    border-right: 3px solid #818cf8;
+    border-bottom: 3px solid #38bdf8;
+    border-bottom-right-radius: 0.95rem;
   }
 }

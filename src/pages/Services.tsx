@@ -72,11 +72,11 @@ export default function Services() {
                 {isArabic ? service.titleAr : service.title}
               </h3>
 
-              <p className="text-[#cfe3ff]/70 leading-relaxed mb-6" dir={isArabic ? 'rtl' : 'ltr'}>
+              <p className="text-[#cfe3ff]/70 leading-relaxed mb-4" dir={isArabic ? 'rtl' : 'ltr'}>
                 {isArabic ? service.descriptionAr : service.description}
               </p>
 
-              <div className="space-y-2 mb-6">
+              <div className="space-y-2">
                 {service.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#60a5fa] rounded-full" />
@@ -86,10 +86,6 @@ export default function Services() {
                   </div>
                 ))}
               </div>
-
-              <button className="w-full py-3 bg-[#071725] text-[#cfe3ff] rounded-lg font-medium hover:bg-[#60a5fa] hover:text-[#cfe3ff] transition-colors duration-300">
-                {isArabic ? 'اعرف المزيد' : 'Learn More'}
-              </button>
             </div>
           ))}
         </div>
