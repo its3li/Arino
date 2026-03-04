@@ -94,7 +94,7 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-12 text-center shadow-2xl">
+        <div className="card-corners bg-gradient-to-r from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-12 text-center shadow-2xl border border-[#60a5fa]/20">
           <h2 className="text-3xl font-bold text-[#cfe3ff] mb-4">
             {isArabic ? 'جاهز لبدء مشروعك؟' : 'Ready to Start Your Project?'}
           </h2>
