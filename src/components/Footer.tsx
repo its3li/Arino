@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from 'lucide-react';
+import { FacebookIcon, InstagramIcon } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Footer() {
@@ -20,9 +20,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: <FacebookIcon className="size-4" />, link: 'https://www.facebook.com/profile.php?id=61588207162139' },
-    { icon: <InstagramIcon className="size-4" />, link: 'https://www.instagram.com/aniroofficial' },
-    { icon: <LinkedinIcon className="size-4" />, link: 'https://www.linkedin.com' },
-    { icon: <YoutubeIcon className="size-4" />, link: 'https://www.youtube.com' }
+    { icon: <InstagramIcon className="size-4" />, link: 'https://www.instagram.com/aniroofficial' }
   ];
 
   return (

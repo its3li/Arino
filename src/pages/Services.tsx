@@ -49,7 +49,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#cfe3ff] mb-4">
-            {isArabic ? 'بنعمل ايه' : 'What We Do'}
+            {isArabic ? 'ماذا نقدم' : 'What We Do'}
           </h1>
           <p className="text-lg text-[#cfe3ff]/70 max-w-2xl mx-auto" dir={isArabic ? 'rtl' : 'ltr'}>
             {isArabic
@@ -62,7 +62,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#2a4f73]/50"
             >
               <div className="w-16 h-16 bg-[#60a5fa]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#071725] transition-colors duration-300">
                 <service.icon className="text-[#cfe3ff] group-hover:text-[#cfe3ff] transition-colors duration-300" size={32} />
@@ -72,11 +72,11 @@ export default function Services() {
                 {isArabic ? service.titleAr : service.title}
               </h3>
 
-              <p className="text-[#cfe3ff]/70 leading-relaxed mb-6" dir={isArabic ? 'rtl' : 'ltr'}>
+              <p className="text-[#cfe3ff]/70 leading-relaxed mb-4" dir={isArabic ? 'rtl' : 'ltr'}>
                 {isArabic ? service.descriptionAr : service.description}
               </p>
 
-              <div className="space-y-2 mb-6">
+              <div className="space-y-2">
                 {service.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#60a5fa] rounded-full" />
@@ -86,15 +86,11 @@ export default function Services() {
                   </div>
                 ))}
               </div>
-
-              <button className="w-full py-3 bg-[#071725] text-[#cfe3ff] rounded-lg font-medium hover:bg-[#60a5fa] hover:text-[#cfe3ff] transition-colors duration-300">
-                {isArabic ? 'اعرف المزيد' : 'Learn More'}
-              </button>
             </div>
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-12 text-center shadow-2xl">
+        <div className="bg-gradient-to-r from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-12 text-center shadow-2xl border border-[#60a5fa]/20">
           <h2 className="text-3xl font-bold text-[#cfe3ff] mb-4">
             {isArabic ? 'جاهز لبدء مشروعك؟' : 'Ready to Start Your Project?'}
           </h2>

@@ -37,7 +37,7 @@ const sampleProjects: Project[] = [
     categories: ['Android App', 'Mobile'],
     categories_ar: ['تطبيق أندرويد', 'جوال'],
     image_url: 'https://i.ibb.co/67RhGBk1/Make-it-a-2k-202602130044.jpg',
-    project_url: null
+    project_url: 'https://aniro.vercel.app/'
   }
 ];
 
@@ -112,7 +112,7 @@ export default function Portfolio() {
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(2)].map((_, i) => (
-              <div key={i} className="bg-[#0d2236] rounded-2xl overflow-hidden shadow-lg animate-pulse">
+              <div key={i} className="bg-[#0d2236] rounded-2xl overflow-hidden shadow-lg animate-pulse border border-[#2a4f73]/50">
                 <div className="h-64 bg-[#60a5fa]/20" />
                 <div className="p-6 space-y-3">
                   <div className="h-6 bg-[#60a5fa]/20 rounded" />

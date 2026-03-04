@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Briefcase, Users, Wrench, Mail } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Navigation() {
@@ -21,7 +21,7 @@ export default function Navigation() {
     { path: '/', label: 'الرئيسية', labelEn: 'Home' },
     { path: '/portfolio', label: 'استعراض مشاريع', labelEn: 'Portfolio' },
     { path: '/about', label: 'من نحن', labelEn: 'About Us' },
-    { path: '/services', label: 'بنعمل ايه', labelEn: 'Services' },
+    { path: '/services', label: 'ماذا نقدم', labelEn: 'Services' },
     { path: '/contact', label: 'تواصل معنا', labelEn: 'Contact' }
   ];
 

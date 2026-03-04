@@ -69,7 +69,7 @@ export default function About() {
         </div>
 
         <div className="mb-20">
-          <div className="bg-[#071725] rounded-3xl shadow-xl p-8 md:p-12">
+          <div className="bg-[#071725] rounded-3xl shadow-xl p-8 md:p-12 border border-[#60a5fa]/20">
             <div className="flex items-center gap-4 mb-6">
               <Users className="text-[#60a5fa]" size={40} />
               <h2 className="text-3xl font-bold text-[#cfe3ff]">{isArabic ? 'قصتنا' : 'Our Story'}</h2>
@@ -103,7 +103,7 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#60a5fa]/20"
               >
                 <div className="w-16 h-16 bg-[#60a5fa]/20 rounded-full flex items-center justify-center mb-6">
                   <value.icon className="text-[#cfe3ff]" size={32} />
@@ -150,7 +150,7 @@ export default function About() {
             {team.map((member, index) => (
               <div
                 key={index}
-                className="bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center"
+                className="bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center border border-[#60a5fa]/20"
               >
                 <h3 className="text-xl font-bold text-[#cfe3ff] mb-1">{isArabic ? member.nameAr : member.name}</h3>
                 <p className="text-[#60a5fa] font-medium">{isArabic ? member.roleAr : member.role}</p>
