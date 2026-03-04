@@ -39,23 +39,24 @@ export function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-[#071725] pt-28 pb-16 text-[#cfe3ff]">
-      <div className="mx-auto h-full max-w-6xl rounded-3xl border border-[#60a5fa]/20 bg-[#0d2236]/65 backdrop-blur-sm">
-        <div aria-hidden className="pointer-events-none absolute inset-0 isolate -z-10 opacity-80">
+    <div className="relative min-h-screen w-full bg-[#071725] pt-28 pb-16 text-[#cfe3ff]">
+      <div aria-hidden className="pointer-events-none absolute inset-0 isolate -z-10 opacity-80">
           <div className="absolute -top-16 left-0 h-80 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(96,165,250,.16),transparent_70%)]" />
           <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(147,197,253,.12),transparent_70%)]" />
         </div>
 
-        <div className="flex grow flex-col justify-center px-4 pt-8 pb-10 md:px-8">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+        <div className="flex grow flex-col justify-center pt-8 pb-10">
           <h1 className="text-4xl font-bold md:text-5xl">{isArabic ? 'تواصل معنا' : 'Contact Us'}</h1>
           <p className="mb-5 mt-3 text-base text-[#cfe3ff]/75" dir={isArabic ? 'rtl' : 'ltr'}>
             {isArabic ? 'تواصل مع فريق الدعم في أرينو.' : 'Contact the support team at Arino.'}
           </p>
         </div>
 
-        <BorderSeparator />
+        <div className="h-px w-full bg-[#60a5fa]/25" />
 
-        <div className="grid md:grid-cols-2">
+        <div className="rounded-2xl border border-[#2a4f73]/45 bg-[#0d2236]/45 overflow-hidden">
+          <div className="grid md:grid-cols-2">
           <Box
             icon={Mail}
             title={isArabic ? 'البريد الإلكتروني' : 'Email'}
@@ -88,11 +89,12 @@ export function ContactPage() {
               </div>
             </div>
           </Box>
+          </div>
         </div>
 
-        <BorderSeparator />
+        <div className="h-px w-full bg-[#60a5fa]/25" />
 
-        <div className="relative flex h-full min-h-[280px] items-center justify-center px-6 py-12">
+        <div className="relative mt-8 flex min-h-[280px] items-center justify-center rounded-2xl border border-[#2a4f73]/45 bg-[#0d2236]/45 px-6 py-12">
           <div
             className={cn(
               'absolute inset-0 size-full',
@@ -124,9 +126,6 @@ export function ContactPage() {
   );
 }
 
-function BorderSeparator() {
-  return <div className="inset-x-0 h-px w-full border-b border-[#60a5fa]/25" />;
-}
 
 type ContactBox = React.ComponentProps<'div'> & {
   icon: LucideIcon;
