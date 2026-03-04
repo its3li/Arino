@@ -70,7 +70,7 @@ export function ContactPage() {
             icon={Phone}
             title={isArabic ? 'الهاتف' : 'Phone'}
             description={isArabic ? 'متاحون للرد طوال أيام الأسبوع.' : "We're available all week for your inquiries."}
-            className="border-b-0 md:border-r-0"
+            className="border-b-0 md:border-e-0"
           >
             <div className="flex items-center gap-x-2">
               <a href={`tel:${APP_PHONE}`} className="block font-mono text-base font-medium tracking-wide hover:underline">
@@ -129,7 +129,7 @@ function Box({ title, description, className, children, ...props }: ContactBox) 
   return (
     <div
       className={cn(
-        'flex flex-col justify-between border-b border-[#60a5fa]/25 md:border-r md:border-b-0',
+        'flex flex-col justify-between border-b border-[#60a5fa]/25 md:border-e md:border-b-0',
         className
       )}
     >
