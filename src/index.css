@@ -61,35 +61,5 @@
       transform: translateY(0);
     }
   }
-  .card-corners {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-  }
 
-  .card-corners::before,
-  .card-corners::after {
-    content: '';
-    position: absolute;
-    width: 3.6rem;
-    height: 3.6rem;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .card-corners::before {
-    top: 0.6rem;
-    left: 0.6rem;
-    border-top: 2px solid rgba(96, 165, 250, 0.55);
-    border-left: 2px solid rgba(96, 165, 250, 0.55);
-    border-top-left-radius: 0.85rem;
-  }
-
-  .card-corners::after {
-    right: 0.6rem;
-    bottom: 0.6rem;
-    border-right: 2px solid rgba(96, 165, 250, 0.55);
-    border-bottom: 2px solid rgba(96, 165, 250, 0.55);
-    border-bottom-right-radius: 0.85rem;
-  }
 }

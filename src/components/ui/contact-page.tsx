@@ -129,7 +129,7 @@ function Box({ title, description, className, children, ...props }: ContactBox) 
   return (
     <div
       className={cn(
-        'card-corners flex flex-col justify-between border-b border-[#60a5fa]/25 md:border-r md:border-b-0',
+        'flex flex-col justify-between border-b border-[#60a5fa]/25 md:border-r md:border-b-0',
         className
       )}
     >

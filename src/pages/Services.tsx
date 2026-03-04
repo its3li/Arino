@@ -62,7 +62,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group card-corners bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="w-16 h-16 bg-[#60a5fa]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#071725] transition-colors duration-300">
                 <service.icon className="text-[#cfe3ff] group-hover:text-[#cfe3ff] transition-colors duration-300" size={32} />
@@ -90,7 +90,7 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="card-corners bg-gradient-to-r from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-12 text-center shadow-2xl border border-[#60a5fa]/20">
+        <div className="bg-gradient-to-r from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-12 text-center shadow-2xl border border-[#60a5fa]/20">
           <h2 className="text-3xl font-bold text-[#cfe3ff] mb-4">
             {isArabic ? 'جاهز لبدء مشروعك؟' : 'Ready to Start Your Project?'}
           </h2>
