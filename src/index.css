@@ -71,26 +71,25 @@
   .card-corners::after {
     content: '';
     position: absolute;
-    width: 4.2rem;
-    height: 4.2rem;
+    width: 3.6rem;
+    height: 3.6rem;
     pointer-events: none;
     z-index: 2;
-    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
   }
 
   .card-corners::before {
-    top: 0.5rem;
-    left: 0.5rem;
-    border-top: 3px solid #38bdf8;
-    border-left: 3px solid #22d3ee;
-    border-top-left-radius: 0.95rem;
+    top: 0.6rem;
+    left: 0.6rem;
+    border-top: 2px solid rgba(96, 165, 250, 0.55);
+    border-left: 2px solid rgba(96, 165, 250, 0.55);
+    border-top-left-radius: 0.85rem;
   }
 
   .card-corners::after {
-    right: 0.5rem;
-    bottom: 0.5rem;
-    border-right: 3px solid #818cf8;
-    border-bottom: 3px solid #38bdf8;
-    border-bottom-right-radius: 0.95rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    border-right: 2px solid rgba(96, 165, 250, 0.55);
+    border-bottom: 2px solid rgba(96, 165, 250, 0.55);
+    border-bottom-right-radius: 0.85rem;
   }
 }
