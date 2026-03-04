@@ -61,4 +61,36 @@
       transform: translateY(0);
     }
   }
+  .card-corners {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .card-corners::before,
+  .card-corners::after {
+    content: '';
+    position: absolute;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid rgba(147, 197, 253, 0.7);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .card-corners::before {
+    top: 0.65rem;
+    left: 0.65rem;
+    border-right: 0;
+    border-bottom: 0;
+    border-top-left-radius: 0.75rem;
+  }
+
+  .card-corners::after {
+    right: 0.65rem;
+    bottom: 0.65rem;
+    border-left: 0;
+    border-top: 0;
+    border-bottom-right-radius: 0.75rem;
+  }
 }

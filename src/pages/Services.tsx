@@ -49,7 +49,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#cfe3ff] mb-4">
-            {isArabic ? 'بنعمل ايه' : 'What We Do'}
+            {isArabic ? 'ماذا نقدم' : 'What We Do'}
           </h1>
           <p className="text-lg text-[#cfe3ff]/70 max-w-2xl mx-auto" dir={isArabic ? 'rtl' : 'ltr'}>
             {isArabic
@@ -62,7 +62,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group card-corners bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="w-16 h-16 bg-[#60a5fa]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#071725] transition-colors duration-300">
                 <service.icon className="text-[#cfe3ff] group-hover:text-[#cfe3ff] transition-colors duration-300" size={32} />

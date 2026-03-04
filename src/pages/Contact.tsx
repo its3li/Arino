@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import { Mail, Phone, Send } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const contactEmail = 'salaf-ai.vercel.app@gmail.com';
+const contactEmail = 'arinosuppor2@gmail.com';
 
 export default function Contact() {
   const { isArabic } = useLanguage();
@@ -44,8 +44,8 @@ export default function Contact() {
       icon: Phone,
       title: 'Phone',
       titleAr: 'الهاتف',
-      value: '01120952576',
-      link: 'tel:01120952576'
+      value: '01021388768',
+      link: 'tel:01021388768'
     }
   ];
 
@@ -67,9 +67,9 @@ export default function Contact() {
           {contactInfo.map((info, index) => (
             <div
               key={index}
-              className="bg-[#071725] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center"
+              className="card-corners bg-[#0d2236]/90 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-[#60a5fa]/20 text-center backdrop-blur-sm"
             >
-              <div className="w-16 h-16 bg-[#60a5fa]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#60a5fa]/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-[#60a5fa]/30">
                 <info.icon className="text-[#cfe3ff]" size={28} />
               </div>
               <h3 className="text-lg font-bold text-[#cfe3ff] mb-2">{isArabic ? info.titleAr : info.title}</h3>
@@ -81,7 +81,7 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-[#071725] rounded-3xl p-8 md:p-12 shadow-xl">
+          <div className="card-corners bg-[#0d2236]/90 rounded-3xl p-8 md:p-12 shadow-xl border border-[#60a5fa]/20 backdrop-blur-sm">
             <h2 className="text-2xl font-bold text-[#cfe3ff] mb-6">{isArabic ? 'أرسل لنا رسالة' : 'Send Us a Message'}</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -96,7 +96,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-[#2a4f73]/60 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#93c5fd] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-[#071725]/80 border border-[#2a4f73]/60 rounded-xl text-[#cfe3ff] placeholder:text-[#cfe3ff]/40 focus:outline-none focus:ring-2 focus:ring-[#93c5fd] focus:border-transparent transition-all"
                   placeholder={isArabic ? 'اسمك' : 'John Doe'}
                 />
               </div>
@@ -112,7 +112,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-[#2a4f73]/60 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#93c5fd] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-[#071725]/80 border border-[#2a4f73]/60 rounded-xl text-[#cfe3ff] placeholder:text-[#cfe3ff]/40 focus:outline-none focus:ring-2 focus:ring-[#93c5fd] focus:border-transparent transition-all"
                   placeholder="john@example.com"
                 />
               </div>
@@ -128,14 +128,14 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-[#2a4f73]/60 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#93c5fd] focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 bg-[#071725]/80 border border-[#2a4f73]/60 rounded-xl text-[#cfe3ff] placeholder:text-[#cfe3ff]/40 focus:outline-none focus:ring-2 focus:ring-[#93c5fd] focus:border-transparent transition-all resize-none"
                   placeholder={isArabic ? 'أخبرنا عن مشروعك...' : 'Tell us about your project...'}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 bg-[#071725] text-[#cfe3ff] rounded-lg font-semibold hover:bg-[#60a5fa] hover:text-[#cfe3ff] transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2"
+                className="w-full py-4 bg-[#60a5fa] text-[#071725] rounded-xl font-semibold hover:bg-[#93c5fd] transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 shadow-lg"
               >
                 <Send size={20} />
                 <span>{isArabic ? 'إرسال الرسالة' : 'Send Message'}</span>
@@ -144,14 +144,14 @@ export default function Contact() {
           </div>
 
           <div className="space-y-8">
-            <div className="bg-[#071725] rounded-3xl p-8 md:p-12 shadow-xl">
+            <div className="card-corners bg-[#0d2236]/90 rounded-3xl p-8 md:p-12 shadow-xl border border-[#60a5fa]/20 backdrop-blur-sm">
               <h2 className="text-2xl font-bold text-[#cfe3ff] mb-6">{isArabic ? 'وسائل التواصل' : 'Social Media'}</h2>
               <div className="space-y-4">
                 <a
                   href="https://www.facebook.com/profile.php?id=61588207162139"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 rounded-lg bg-[#071725] text-[#cfe3ff] hover:bg-[#60a5fa] hover:text-[#cfe3ff] transition-colors"
+                  className="block w-full text-center py-3 px-4 rounded-xl bg-[#071725] border border-[#60a5fa]/20 text-[#cfe3ff] hover:bg-[#60a5fa] hover:text-[#071725] transition-colors"
                 >
                   {isArabic ? 'فتح فيسبوك' : 'Open Facebook'}
                 </a>
@@ -159,14 +159,14 @@ export default function Contact() {
                   href="https://www.instagram.com/aniroofficial"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 rounded-lg bg-[#071725] text-[#cfe3ff] hover:bg-[#60a5fa] hover:text-[#cfe3ff] transition-colors"
+                  className="block w-full text-center py-3 px-4 rounded-xl bg-[#071725] border border-[#60a5fa]/20 text-[#cfe3ff] hover:bg-[#60a5fa] hover:text-[#071725] transition-colors"
                 >
                   {isArabic ? 'فتح انستجرام' : 'Open Instagram'}
                 </a>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-8 md:p-12 shadow-xl text-[#cfe3ff]">
+            <div className="card-corners bg-gradient-to-br from-[#0d2236] to-[#0d2236]/90 rounded-3xl p-8 md:p-12 shadow-xl text-[#cfe3ff] border border-[#60a5fa]/20">
               <h3 className="text-xl font-bold mb-4">{isArabic ? 'جاهز للتعاون؟' : 'Ready to Collaborate?'}</h3>
               <p className="text-[#cfe3ff]/80 leading-relaxed mb-6" dir={isArabic ? 'rtl' : 'ltr'}>
                 {isArabic

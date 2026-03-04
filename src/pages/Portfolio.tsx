@@ -37,7 +37,7 @@ const sampleProjects: Project[] = [
     categories: ['Android App', 'Mobile'],
     categories_ar: ['تطبيق أندرويد', 'جوال'],
     image_url: 'https://i.ibb.co/67RhGBk1/Make-it-a-2k-202602130044.jpg',
-    project_url: null
+    project_url: 'https://aniro.vercel.app/'
   }
 ];
 
@@ -132,7 +132,7 @@ export default function Portfolio() {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-[#0d2236] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#60a5fa]/20"
+                className="group card-corners bg-[#0d2236] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#60a5fa]/20"
               >
                 <div className="relative aspect-video overflow-hidden bg-[#60a5fa]/10">
                   {!loadedImages[project.id] && <div className="absolute inset-0 animate-pulse bg-[#60a5fa]/20" />}
