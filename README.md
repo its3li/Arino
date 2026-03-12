@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://arino-v2.vercel.app/og-image.png" width="200" alt="Arino Logo">
+<img src="public\logo.png" width="200" alt="Arino Logo">
 
 # 🚀 Arino
 
