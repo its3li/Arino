@@ -8,17 +8,23 @@ export default function Home() {
     <AuroraBackground className="relative min-h-screen overflow-hidden bg-[#071725]">
       <div className="relative z-30 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-10">
         <div className="text-center animate-fade-in flex flex-col items-center gap-6 sm:gap-7">
-          <div className="flex w-full flex-col items-center justify-center gap-3">
-            <img
-              src="https://i.ibb.co/67GWSTLC/Chat-GPT-Image-Feb-13-2026-02-03-18-AM.png"
-              alt="Arino"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              className="w-80 sm:w-[24rem] md:w-[28rem] lg:w-[31rem] h-auto mx-auto drop-shadow-2xl rounded-2xl"
-            />
+          <div className="flex w-full flex-col items-center justify-center gap-4">
+            {/* aspect-ratio بنفس أبعاد اللوجو الأصلية 541:85 يكليب الـ transparent space */}
+            <div
+              className="w-[22rem] sm:w-[28rem] md:w-[33rem] lg:w-[38rem] overflow-hidden"
+              style={{ aspectRatio: '541 / 85' }}
+            >
+              <img
+                src="https://i.ibb.co/67GWSTLC/Chat-GPT-Image-Feb-13-2026-02-03-18-AM.png"
+                alt="Arino"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="w-full h-full object-cover object-center drop-shadow-2xl"
+              />
+            </div>
             <p
-              className="text-xl sm:text-2xl text-[#93c5fd] font-light text-center w-full"
+              className="text-xl sm:text-2xl text-[#93c5fd] font-light text-center w-full pt-1"
               dir={isArabic ? 'rtl' : 'ltr'}
             >
               {isArabic ? 'علمٌ يُستفاد، ونورٌ يُستزاد' : 'Knowledge to Benefit, Light to Grow'}

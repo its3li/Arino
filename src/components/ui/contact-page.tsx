@@ -8,7 +8,6 @@ import {
   Phone,
   FacebookIcon,
   InstagramIcon,
-  Globe
 } from 'lucide-react';
 import { Button, ButtonProps } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -31,11 +30,6 @@ export function ContactPage() {
       href: 'https://www.instagram.com/aniroofficial',
       label: 'Instagram'
     },
-    {
-      icon: Globe,
-      href: 'https://aniro.vercel.app/',
-      label: 'Aniro'
-    }
   ];
 
   return (
@@ -53,7 +47,6 @@ export function ContactPage() {
           </p>
         </div>
 
-        <div className="h-px w-full bg-[#60a5fa]/25" />
 
         <div className="rounded-2xl border border-[#2a4f73]/45 bg-[#0d2236]/45 overflow-hidden">
           <div className="grid md:grid-cols-2">
@@ -92,7 +85,6 @@ export function ContactPage() {
           </div>
         </div>
 
-        <div className="h-px w-full bg-[#60a5fa]/25" />
 
         <div className="relative mt-8 flex min-h-[280px] items-center justify-center rounded-2xl border border-[#2a4f73]/45 bg-[#0d2236]/45 px-6 py-12">
           <div
@@ -141,12 +133,12 @@ function Box({ title, description, className, children, ...props }: ContactBox) 
         className
       )}
     >
-      <div className="flex items-center gap-x-3 border-b border-[#60a5fa]/25 bg-[#071725]/70 p-4">
+      <div className="flex items-center gap-x-3 bg-[#071725]/70 p-4">
         <props.icon className="size-5 text-[#93c5fd]" strokeWidth={1} />
         <h2 className="text-lg font-medium tracking-wider">{title}</h2>
       </div>
       <div className="flex min-h-[134px] items-center gap-x-2 p-5 md:p-6">{children}</div>
-      <div className="border-t border-[#60a5fa]/25 p-4">
+      <div className="p-4">
         <p className="text-sm text-[#cfe3ff]/70">{description}</p>
       </div>
     </div>
