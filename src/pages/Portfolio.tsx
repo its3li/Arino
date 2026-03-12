@@ -36,7 +36,7 @@ const sampleProjects: Project[] = [
     description_ar: 'صُمم "أنيروا" ليكون دليلك اليومي نحو السكينة.',
     categories: ['Android App', 'Mobile'],
     categories_ar: ['تطبيق أندرويد', 'جوال'],
-    image_url: 'https://i.ibb.co/67RhGBk1/Make-it-a-2k-202602130044.jpg',
+    image_url: 'https://i.ibb.co/Q35M71RL/Make-it-a-2k-202602130044.jpg',
     project_url: 'https://aniro.vercel.app/'
   }
 ];
@@ -98,11 +98,10 @@ export default function Portfolio() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-2 rounded-full font-medium transition-all transform hover:scale-105 ${
-                selectedCategory === cat
+              className={`px-6 py-2 rounded-full font-medium transition-all transform hover:scale-105 ${selectedCategory === cat
                   ? 'bg-[#60a5fa] text-[#071725] shadow-lg'
                   : 'bg-[#0d2236] text-[#cfe3ff] hover:bg-[#60a5fa]/20'
-              }`}
+                }`}
             >
               {getCategoryLabel(cat)}
             </button>
@@ -110,13 +109,22 @@ export default function Portfolio() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="bg-[#0d2236] rounded-2xl overflow-hidden shadow-lg animate-pulse border border-[#2a4f73]/50">
-                <div className="h-64 bg-[#60a5fa]/20" />
+                {/* تطابق aspect-video زي الكروت الحقيقية */}
+                <div className="aspect-video bg-[#60a5fa]/20" />
                 <div className="p-6 space-y-3">
-                  <div className="h-6 bg-[#60a5fa]/20 rounded" />
-                  <div className="h-4 bg-[#60a5fa]/20 rounded w-3/4" />
+                  {/* تطابق categories tags */}
+                  <div className="flex gap-2">
+                    <div className="h-5 w-20 bg-[#60a5fa]/20 rounded-full" />
+                    <div className="h-5 w-16 bg-[#60a5fa]/20 rounded-full" />
+                  </div>
+                  {/* تطابق العنوان */}
+                  <div className="h-6 bg-[#60a5fa]/20 rounded w-2/3" />
+                  {/* تطابق الـ description */}
+                  <div className="h-4 bg-[#60a5fa]/20 rounded w-full" />
+                  <div className="h-4 bg-[#60a5fa]/20 rounded w-5/6" />
                 </div>
               </div>
             ))}
@@ -143,9 +151,8 @@ export default function Portfolio() {
                     decoding="async"
                     onLoad={() => setLoadedImages((prev) => ({ ...prev, [project.id]: true }))}
                     onError={() => setLoadedImages((prev) => ({ ...prev, [project.id]: true }))}
-                    className={`w-full h-full object-contain transition-all duration-500 group-hover:scale-105 ${
-                      loadedImages[project.id] ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`w-full h-full object-contain transition-all duration-500 group-hover:scale-105 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'
+                      }`}
                   />
                   {project.project_url && (
                     <a
